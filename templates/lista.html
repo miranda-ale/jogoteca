@@ -8,6 +8,7 @@
                     <th>Nome</th>
                     <th>Categoria</th>
                     <th>Console</th>
+                    <th></th>
 
                 </tr>
             </thead>
@@ -17,12 +18,29 @@
                     <td> {{ jogo.nome }} </td>
                     <td> {{ jogo.categoria }} </td>
                     <td> {{ jogo.console }} </td>
+                    <td>
+                        <span><a href="{{url_for('editar', id = jogo.id)}}" class="text-decoration-none">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true">
+                                </i>
+                            </button>
+                        </a></span>
+
+                        <span><a href="{{url_for('deletar', id = jogo.id)}}" class="text-decoration-none">
+                            <button type="button" class="btn btn-primary btn-sm btn-danger">
+                                <i class="fa fa-trash" aria-hidden="true">
+                                </i>
+                            </button>
+                        </a>
+                        </span>
+
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <a href = '/novo'>
-            <button type="button" class="btn btn-primary">Adicionar jogo</button>
+            <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i></button>
         </a>
 
 {% endblock %}
