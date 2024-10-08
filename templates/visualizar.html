@@ -1,0 +1,48 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+
+    <figure class="img-thumbnail col-md-4">
+            <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo=capa_jogo) }}">
+            <figcaption>
+              <label class="fileContainer">
+                Mudar Capa
+                <input type = "file" name = "arquivo" accept=".jpg">
+              </label>
+            </figcaption>
+    </figure>
+
+        <fieldset>
+
+          <div class="container-fluid">
+            <label for="nome"><b>Nome</b></label>
+            <input type="text" id="nome" name="nome" class="form-control" value = "{{ jogo.nome }}" readonly>
+          </div>
+          <div class="container-fluid">
+            <label for="categoria"><b>Categoria</b></label>
+            <input type="text" id="categoria" name="categoria" class="form-control" value = "{{ jogo.categoria }}" readonly>
+          </div>
+          <div class="container-fluid">
+            <label for="console"><b>Console</b></label>
+            <input type="text" id="console" name="console" class="form-control" value = "{{ jogo.console }}" readonly>
+          </div>
+
+        </fieldset>
+    <br>
+        <span class="container-fluid">
+            <a href="{{url_for('index')}}" class="text-decoration-none">
+                <button type="button" class="btn btn-secondary">
+                    Voltar
+                </button>
+            </a>
+        </span>
+        <span class="container-fluid">
+            <a href="{{url_for('editar', id = jogo.id)}}" class="text-decoration-none">
+                <button type="button" class="btn btn-primary">
+                    Editar
+                </button>
+            </a>
+        </span>
+
+
+{% endblock %}
